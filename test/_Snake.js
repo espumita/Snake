@@ -1,8 +1,8 @@
-describe('Array', function() {
-    it('when_true_should_be_true', function () {
-        expect(true).to.be.true;
-    });
-    it('when_string_equal_to_string',function(){
-         assert.equal("a","a");
+
+describe('Unit: Snake Test Suit', function() {
+    it('When_we_create_and_initialize_the_canvas',function(){
+        var canvasTest = new canvas().createAndInitializeCanvas();
+        assert.equal(canvasTest.width,520);
+        assert.equal(canvasTest.height,520);
     });
 });

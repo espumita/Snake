@@ -1,13 +1,36 @@
 var GAME_COLUMNS = 26;
 var GAME_ROWS = 26;
 
-function canvas(){
-    this.canvas;
-    this.createAndInitializeCanvas = function(){
-        this.canvas = document.createElement("canvas");
-        this.canvas.width = GAME_COLUMNS*20;
-        this.canvas.height = GAME_ROWS*20;
-        document.body.appendChild(this.canvas);
-        return this.canvas;
+function createCanvas(widthSize,heightSize){
+    var canvas = document.createElement("canvas");
+    canvas.width = widthSize;
+    canvas.height = heightSize;
+    document.body.appendChild(canvas);
+    return canvas;
+}
+
+function gameGird(numberOfColumns,numberOfRows,defaultValue){
+    this.gird = {
+        width : null,
+        height : null,
+        girdContent : null,
+        init: function(){
+            this.width = numberOfColumns;
+            this.height = numberOfRows;
+            this.girdContent = [];
+            for(var i = 0;i < this.width;i++){
+                this.girdContent.push([]);
+                for(var j = 0;j < this.height;j++){
+                    this.girdContent[i].push(defaultValue);
+                }
+            }
+        },
+        get: function(horizontalCoordinate,verticalCoordinate){
+            return this.girdContent[horizontalCoordinate][verticalCoordinate];
+        },
+        set: function(horizontalCoordinate,verticalCoordinate,value){
+            this.girdContent[horizontalCoordinate][verticalCoordinate] = value;
+        }
     }
+    return this.gird;
 }

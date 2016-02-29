@@ -1,5 +1,7 @@
-var GAME_COLUMNS = 26;
-var GAME_ROWS = 26;
+var DIRECTION_UP = 0;
+var DIRECTION_RIGHT = 1;
+var DIRECTION_LEFT = 2;
+var DIRECTION_DOWN= 3;
 
 function createCanvas(widthSize,heightSize){
     var canvas = document.createElement("canvas");
@@ -9,7 +11,7 @@ function createCanvas(widthSize,heightSize){
     return canvas;
 }
 
-function gameGird(numberOfColumns,numberOfRows,defaultValue){
+function createGird(numberOfColumns, numberOfRows, defaultValue){
     this.gird = {
         width : null,
         height : null,
@@ -33,4 +35,25 @@ function gameGird(numberOfColumns,numberOfRows,defaultValue){
         }
     }
     return this.gird;
+}
+
+function createSnake(direction,horizontalCoordinate,verticalCoordinate){
+    var snake = {
+        direction: null,
+        snakeQueue: null,
+        last: null,
+        init: function(){
+            this.direction = direction;
+            this.snakeQueue = [];
+            this.insert(horizontalCoordinate,verticalCoordinate);
+        },
+        insert: function(horizontalCoordinate,verticalCoordinate){
+            this.snakeQueue.unshift({
+                x:horizontalCoordinate,
+                y:verticalCoordinate
+            });
+            this.last = this.snakeQueue[0];
+        }
+    }
+    return snake;
 }

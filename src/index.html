@@ -8,8 +8,15 @@
 </head>
 <body>
 <script>
-    new createCanvas(520,520);
-    new createGird(26,26,1);
+    var frames = 0;
+    var canvas = new createCanvas(520,520);
+    var ctx = canvas.getContext("2d");
+    var grid = new createGird(26,26,0);
+    grid.init();
+    var snake = new createSnake(DIRECTION_UP,13,25);
+    snake.init();
+    grid.set(13,25,1);
+    gameIteration();
 </script>
 </body>
 </html>

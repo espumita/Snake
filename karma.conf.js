@@ -15,7 +15,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            './src/Snake.js',
+            'src/game/Snake.js',
             './test/_Snake.js',
         ],
 

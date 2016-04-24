@@ -1,5 +1,5 @@
 describe('Unit: Snake Test Suit', function() {
-    it('When_we_create_the_canvas_with_520_x_520_dimensions',function(){
+    it('when_we_create_the_canvas_with_520_x_520_dimensions',function(){
         var canvas = new createCanvas(520,520);
         assert.equal( canvas.width,520);
         assert.equal( canvas.height,520);
